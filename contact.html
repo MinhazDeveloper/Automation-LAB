@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Contact Minhaz RT | AI Automation Expert</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f7fe 0%, #eef2fa 100%);
+            color: #0a1c2f;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .contact-page-container {
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 48px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(14, 110, 158, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-icon {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-icon i {
+            font-size: 4rem;
+            color: #0f6b9c;
+            background: #e2f0fd;
+            padding: 1rem;
+            border-radius: 60px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, #0b2b44, #1e6f9f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            text-align: center;
+            color: #4a627a;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #eef2f8;
+            padding-bottom: 1rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+            padding: 0.8rem 1rem;
+            background: #f8fafd;
+            border-radius: 60px;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .contact-detail:hover {
+            background: #ffffff;
+            border-color: #cde3f2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-detail i {
+            font-size: 1.6rem;
+            width: 2.2rem;
+            color: #0f6b9c;
+            text-align: center;
+        }
+
+        .contact-detail a, .contact-detail span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1e2f3e;
+            text-decoration: none;
+            flex: 1;
+            word-break: break-all;
+        }
+
+        .contact-detail a:hover {
+            color: #0f6b9c;
+            text-decoration: underline;
+        }
+
+        .availability {
+            background: linear-gradient(90deg, #e2f0fd, #d4e9f7);
+            border-radius: 60px;
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .availability i {
+            color: #0f6b9c;
+            margin-right: 0.5rem;
+        }
+
+        .availability span {
+            font-weight: 600;
+            color: #0a2b3b;
+        }
+
+        .btn-group-contact {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .btn-primary-contact {
+            background: #0d6e9e;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary-contact:hover {
+            background: #095a82;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-contact {
+            background: transparent;
+            border: 1.5px solid #0d6e9e;
+            color: #0d6e9e;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-outline-contact:hover {
+            background: #e5f2fa;
+            transform: translateY(-2px);
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .back-home a {
+            color: #5f7f9e;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-home a:hover {
+            color: #0f6b9c;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1rem;
+            }
+            .contact-card {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .contact-detail {
+                gap: 0.8rem;
+                padding: 0.6rem 0.8rem;
+            }
+            .contact-detail i {
+                font-size: 1.3rem;
+                width: 1.8rem;
+            }
+            .btn-group-contact {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-primary-contact, .btn-outline-contact {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-page-container">
+        <div class="contact-card">
+            <div class="profile-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>Minhaz RT</h1>
+            <div class="tagline">
+                <i class="fas fa-microchip"></i> AI Automation Expert
+            </div>
+
+            <!-- Email -->
+            <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:murad10056@gmail.com">murad10056@gmail.com</a>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-detail">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+8801869561691">+880 1869561691</a>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="contact-detail">
+                <i class="fab fa-linkedin"></i>
+                <a href="#" target="_blank">/in/minhaz-dev1</a>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="contact-detail">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/8801869561691" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            </div>
+
+            <!-- Availability -->
+            <div class="availability">
+                <i class="fas fa-clock"></i>
+                <span>Response within 24 hours — guaranteed.</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="btn-group-contact">
+                <button id="copyEmailBtn" class="btn-outline-contact">
+                    <i class="fas fa-copy"></i> Copy Email
+                </button>
+            </div>
+
+            <!-- Back to Portfolio Link -->
+            <div class="back-home">
+                <span style="margin: 0 8px">|</span>
+                <a href="javascript:void(0)" onclick="goToPortfolio()">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Copy Email functionality
+        const copyBtn = document.getElementById('copyEmailBtn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function() {
+                const email = "murad10056@gmail.com";
+                navigator.clipboard.writeText(email).then(() => {
+                    // Show temporary toast message
+                    const toast = document.createElement('div');
+                    toast.textContent = '✅ Email copied to clipboard!';
+                    toast.style.position = 'fixed';
+                    toast.style.bottom = '20px';
+                    toast.style.left = '50%';
+                    toast.style.transform = 'translateX(-50%)';
+                    toast.style.backgroundColor = '#0a2b3b';
+                    toast.style.color = 'white';
+                    toast.style.padding = '10px 20px';
+                    toast.style.borderRadius = '40px';
+                    toast.style.fontSize = '0.9rem';
+                    toast.style.zIndex = '9999';
+                    toast.style.fontWeight = '500';
+                    document.body.appendChild(toast);
+                    setTimeout(() => toast.remove(), 2000);
+                }).catch(() => {
+                    alert('Unable to copy. Please select manually.');
+                });
+            });
+        }
+
+        // Function to go back to portfolio (main site)
+        function goToPortfolio() {
+            // If this page was opened from the main site, we can try to close and redirect
+            if (window.opener && !window.opener.closed) {
+                window.opener.location.href = window.opener.location.origin + window.opener.location.pathname;
+                window.close();
+            } else {
+                // Fallback: just redirect to main page (assuming same directory)
+                window.location.href = 'index.html';
+            }
+        }
+
+        // If the page is embedded or opened normally, close functionality works
+        // For better UX, we also handle closing via the close link
+    </script>
+</body>
+</html>

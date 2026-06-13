@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AI Automation Expert | Future-Driven Solutions</title>
+    <!-- Google Fonts & simple CSS reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafcff;
+            color: #0a1c2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* navigation bar styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h2 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0b2b44, #1e6f9f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: none;
+            color: #2c7cb6;
+            display: block;
+            letter-spacing: normal;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e2f3e;
+            transition: 0.25s;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-menu li a:hover, .nav-menu li a.active {
+            color: #0f6b9c;
+        }
+
+        .nav-menu li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #0f6b9c;
+            border-radius: 3px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #0a1c2f;
+        }
+
+        /* sections general */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #0a2b3b;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e88c9, #6ec3f0);
+            border-radius: 4px;
+        }
+
+        /* hero / home */
+        .hero {
+            padding: 4rem 0 5rem 0;
+            background: linear-gradient(120deg, #ffffff 0%, #f2f9fe 100%);
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1.2;
+        }
+        .hero-badge {
+            background: #e2f0fd;
+            color: #0f6b9c;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            color: #0c2e42;
+        }
+        .hero-highlight {
+            background: linear-gradient(120deg, #1e88c9, #0d47a1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #2c4b66;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #0d6e9e;
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: #095a82;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #0d6e9e;
+            color: #0d6e9e;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #e5f2fa;
+            transform: translateY(-2px);
+        }
+        .hero-visual {
+            flex: 0.9;
+            background: #d9eefa;
+            border-radius: 40px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .hero-visual i {
+            font-size: 10rem;
+            color: #0f6b9c;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+        }
+
+        /* about */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1.5;
+        }
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #1f3e54;
+        }
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            background: white;
+            padding: 1rem 1.8rem;
+            border-radius: 32px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            text-align: center;
+            border: 1px solid #e2edf5;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f6b9c;
+        }
+
+        /* services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            transition: all 0.25s;
+            border: 1px solid #eef2fa;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #cbe5f5;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            color: #1e88c9;
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .service-card p {
+            color: #4a6279;
+        }
+
+        /* contact */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 2rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eaf0f6;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .contact-detail i {
+            font-size: 1.4rem;
+            width: 2rem;
+            color: #0f6b9c;
+        }
+        .contact-form {
+            flex: 1.3;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border-radius: 28px;
+            border: 1px solid #cddfea;
+            font-family: inherit;
+            background: #fefefe;
+            transition: 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0f6b9c;
+            box-shadow: 0 0 0 3px rgba(15,107,156,0.1);
+        }
+        button[type="submit"] {
+            background: #0d6e9e;
+            border: none;
+            width: 100%;
+            padding: 0.9rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #095a82;
+        }
+        .form-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b8a9e;
+            font-size: 0.9rem;
+        }
+
+        /* Workflow Page Styles */
+        .workflow-page {
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #f8fcff 0%, #ffffff 100%);
+            padding: 3rem 1rem 5rem;
+        }
+        .workflow-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 2.5rem 2rem 3rem;
+            border: 1px solid #eef2ff;
+        }
+        .workflow-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0b2b44, #1e6f9f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
+        }
+        .workflow-sub {
+            text-align: center;
+            color: #4a627a;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .video-wrapper {
+            position: relative;
+            margin: 1.5rem 0 2.5rem;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+            background: #000;
+        }
+        .video-wrapper iframe {
+            width: 100%;
+            height: 480px;
+            display: block;
+            border: none;
+        }
+        .workflow-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin: 2rem 0 1.5rem;
+        }
+        .btn-workflow {
+            padding: 1rem 2.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+        .btn-workflow-primary {
+            background: #0d6e9e;
+            color: white;
+            box-shadow: 0 8px 18px rgba(13,110,158,0.2);
+        }
+        .btn-workflow-primary:hover {
+            background: #095a82;
+            transform: translateY(-3px);
+        }
+        .btn-workflow-secondary {
+            background: white;
+            border: 2px solid #0d6e9e;
+            color: #0d6e9e;
+        }
+        .btn-workflow-secondary:hover {
+            background: #e7f1f9;
+            transform: translateY(-3px);
+        }
+
+        /* responsive */
+        @media (max-width: 850px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                height: calc(100% - 70px);
+                box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+                padding: 2rem;
+                transition: left 0.3s ease;
+                gap: 2rem;
+                border-radius: 0 32px 32px 0;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+            .hero-visual i {
+                font-size: 6rem;
+            }
+            .video-wrapper iframe {
+                height: 280px;
+            }
+            .workflow-title {
+                font-size: 2rem;
+            }
+            .workflow-container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 560px) {
+            section {
+                padding: 3rem 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Menu Bar -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <h2>Automation LAB</h2>
+        </div>
+        <div class="menu-icon" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link" data-page="home">HOME</a></li>
+            <li><a href="#about" class="nav-link" data-page="about">ABOUT ME</a></li>
+            <li><a href="#services" class="nav-link" data-page="services">SERVICES</a></li>
+            <li><a href="#contact" class="nav-link" data-page="contact">CONTACT ME</a></li>
+            <li><a href="#" id="workflowNavBtn" class="nav-link" data-page="workflow">AUTOMATION WORKFLOW</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content Wrapper -->
+<div id="mainContent">
+    <!-- HOMEPAGE SECTIONS -->
+    <div id="homepageSections">
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-robot"></i> AI Automation Expert</div>
+                    <h1>Automate Smarter, <span class="hero-highlight">Grow Faster</span></h1>
+                    <p>Practical AI-based services designed to save time, improve clarity, and support real business growth. Let AI handle the repetitive — you focus on strategy.</p>
+                    <div class="btn-group">
+                        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Start automating</a>
+                        <a href="#services" class="btn-outline"><i class="fas fa-cogs"></i> Explore services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <i class="fas fa-microchip"></i>
+                    <div style="font-size: 0.8rem; margin-top: 1rem;">AI · LLM · RPA</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hi, I'm <strong>Minhaz RT</strong> — an AI Automation specialist. I help companies eliminate bottlenecks and unlock hidden efficiency.</p>
+                        <p>My approach is simple: no overhyped jargon. I deliver AI agents, workflow automations, and intelligent data pipelines that actually solve real problems. Whether it's reducing manual workload or improving decision clarity, I focus on measurable ROI and sustainable growth.</p>
+                        <div class="stats">
+                            <div class="stat-item"><span class="stat-number">50+</span><br>Projects delivered</div>
+                            <div class="stat-item"><span class="stat-number">98%</span><br>Client retention</div>
+                            <div class="stat-item"><span class="stat-number">3x</span><br>Avg. efficiency gain</div>
+                        </div>
+                    </div>
+                    <div style="flex: 0.8; text-align: center;">
+                        <i class="fas fa-chalkboard-user" style="font-size: 7rem; color: #bbdef5;"></i>
+                        <p style="margin-top: 0.5rem; font-style: italic;">"AI that works for humans, not the other way."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">AI Services for Real Growth</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Intelligent Document Processing</h3>
+                        <p>Extract, classify and analyze unstructured data with LLMs. Save 20+ hours weekly on manual data entry & reporting.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-arrows-spin"></i></div>
+                        <h3>Workflow Automation (RPA + AI)</h3>
+                        <p>Integrate chatbots, email automation, CRM sync, and custom AI agents — reduce operational friction by up to 70%.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Predictive Analytics & Forecasting</h3>
+                        <p>Turn historical data into actionable forecasts. Improve inventory, sales planning, and resource allocation with AI.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-comment-dots"></i></div>
+                        <h3>AI Customer Support Suite</h3>
+                        <p>Deploy intelligent assistants, automated ticket routing & sentiment analysis. 24/7 support with reduced response times.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center; font-size: 0.95rem; background: #eef4fa; padding: 1rem; border-radius: 60px;">
+                    <i class="fas fa-check-circle" style="color: #0f6b9c;"></i> Every solution is tailored, scalable, and built for real business impact.
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Automate Your Success</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Ready to transform operations?</h3>
+                        <p>Reach out today for a free consultation or a pilot project. Let's discuss how AI clarity can boost your growth trajectory.</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i> <span>murad10056@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone-alt"></i> <span>+880 1869561691</span> 
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fab fa-linkedin"></i> <span>/in/minhaz-dev1</span>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <i class="fas fa-clock"></i> Response within 24h — guaranteed.
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" id="message" placeholder="Tell me about your automation goals..." required></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                            <div id="formFeedback" class="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<footer id="globalFooter">
+    <p>© Automation LAB — AI Automation for forward-thinking businesses. <i class="fas fa-infinity"></i> Smart solutions, sustainable results.</p>
+</footer>
+
+<script>
+    // ==================== CONFIGURATION ====================
+    // UPDATE THIS URL with your actual workflow download link
+    const WORKFLOW_DOWNLOAD_URL = "https://example.com/automation-workflow.zip";
+    // If you want to use a different link, just change the value above.
+    // Example: "https://drive.google.com/your-workflow-file" or "https://yourdomain.com/workflow.pdf"
+    
+    // ==================== DOM Elements ====================
+    const homepageContainer = document.getElementById('homepageSections');
+    const mainWrapper = document.getElementById('mainContent');
+    const workflowNavBtn = document.getElementById('workflowNavBtn');
+    const navLinksAll = document.querySelectorAll('.nav-link');
+    const mobileIcon = document.getElementById('mobileMenu');
+    const navMenu = document.getElementById('navMenu');
+    
+    let workflowPageDiv = null;
+
+    // Helper to close mobile menu
+    function closeMobileMenu() {
+        navMenu.classList.remove('active');
+        const icon = mobileIcon.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+
+    // ==================== Workflow Page Creation ====================
+    function createWorkflowPage() {
+        if (workflowPageDiv) return workflowPageDiv;
+        
+        const wfDiv = document.createElement('div');
+        wfDiv.className = 'workflow-page';
+        wfDiv.id = 'workflowPageContainer';
+        wfDiv.innerHTML = `
+            <div class="workflow-container">
+                <h1 class="workflow-title">🚀 Automation Workflow</h1>
+                <div class="workflow-sub">See how AI-driven automation transforms business operations — from data to decisions</div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/hZMh7vvtBHw" title="AI Automation Workflow Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+                <div class="workflow-buttons">
+                    
+                    <a id="getWorkflowBtn" class="btn-workflow btn-workflow-primary" href="https://minhaz85.gumroad.com/l/invoice" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Get Workflow
+                    </a>
+                    <a id="fullSetupBtn" class="btn-workflow btn-workflow-secondary" href="contact.html" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-cogs"></i> Full Setup
+                    </a>
+                </div>
+                <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #5f7f9e;">
+                    <i class="fas fa-chart-simple"></i> Tailored AI pipelines • End-to-end orchestration • Seamless integration
+                </div>
+            </div>
+        `;
+        
+        // Get Workflow button - opens the provided link
+        // const getBtn = wfDiv.querySelector('#getWorkflowBtn');
+        // if (getBtn) {
+        //     getBtn.href = WORKFLOW_DOWNLOAD_URL;
+        //     // Optional: add click tracking or validation
+        //     getBtn.addEventListener('click', (e) => {
+        //         // You can add analytics or custom logic here if needed
+        //         console.log('Get Workflow clicked, opening:', WORKFLOW_DOWNLOAD_URL);
+        //     });
+        // }
+        
+        // Full Setup button - navigates to Contact Me page
+        const setupBtn = wfDiv.querySelector('#fullSetupBtn');
+        if (setupBtn) {
+            setupBtn.addEventListener('click', () => {
+                // Navigate to Contact Me section on homepage
+                navigateToContactPage();
+            });
+        }
+        
+        return wfDiv;
+    }
+    
+    // ==================== Navigation Functions ====================
+    // Navigate to a specific section on the homepage
+    function navigateToHomepageSection(sectionId) {
+        // First, ensure homepage is visible
+        if (workflowPageDiv && workflowPageDiv.style.display === 'block') {
+            // Switch back to homepage
+            if (homepageContainer) homepageContainer.style.display = 'block';
+            if (workflowPageDiv) workflowPageDiv.style.display = 'none';
+            
+            // Update active nav link
+            navLinksAll.forEach(link => link.classList.remove('active'));
+            const targetNavLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (targetNavLink) targetNavLink.classList.add('active');
+            if (workflowNavBtn) workflowNavBtn.classList.remove('active');
+            
+            // Scroll to the section after a tiny delay to ensure DOM is ready
+            setTimeout(() => {
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 70;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            }, 50);
+        } else {
+            // Already on homepage, just scroll
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 70;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+            // Update active nav link
+            navLinksAll.forEach(link => link.classList.remove('active'));
+            const targetNavLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (targetNavLink) targetNavLink.classList.add('active');
+            if (workflowNavBtn) workflowNavBtn.classList.remove('active');
+        }
+        
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
+    
+    // Special function to navigate to Contact page (for Full Setup button)
+    function navigateToContactPage() {
+        navigateToHomepageSection('contact');
+    }
+    
+    // Show Workflow Page (hide homepage sections)
+    function showWorkflowPage() {
+        const workflowDiv = createWorkflowPage();
+        if (!workflowDiv.parentNode) {
+            mainWrapper.appendChild(workflowDiv);
+        }
+        // Hide homepage sections
+        if (homepageContainer) homepageContainer.style.display = 'none';
+        workflowDiv.style.display = 'block';
+        
+        // Update active nav link - only workflow should be active
+        navLinksAll.forEach(link => link.classList.remove('active'));
+        if (workflowNavBtn) workflowNavBtn.classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
+    
+    // Show Homepage (hide workflow page)
+    function showHomepage() {
+        if (workflowPageDiv && workflowPageDiv.parentNode) {
+            workflowPageDiv.style.display = 'none';
+        }
+        if (homepageContainer) homepageContainer.style.display = 'block';
+        
+        // Update active link based on current visible section
+        updateActiveSection();
+        
+        // Close mobile menu
+        if (navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
+    
+    // Update active section highlighting for homepage (scroll based)
+    function updateActiveSection() {
+        // Only update if homepage is visible
+        if (!homepageContainer || homepageContainer.style.display === 'none') return;
+        
+        const sections = document.querySelectorAll('#homepageSections section');
+        const navItems = document.querySelectorAll('.nav-link:not(#workflowNavBtn)');
+        let currentSection = '';
+        const scrollPos = window.scrollY + 120;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href && href.substring(1) === currentSection) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Remove active from workflow nav if it has it
+        if (workflowNavBtn) workflowNavBtn.classList.remove('active');
+    }
+    
+    // ==================== Event Listeners ====================
+    // Handle navigation clicks for regular menu items (HOME, ABOUT ME, SERVICES, CONTACT ME)
+    const regularNavLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    regularNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            navigateToHomepageSection(targetId);
+        });
+    });
+    
+    // Workflow button click handler
+    if (workflowNavBtn) {
+        workflowNavBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showWorkflowPage();
+        });
+    }
+    
+    // Mobile menu toggle
+    mobileIcon.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileIcon.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isInsideMenu = navMenu.contains(event.target);
+        const isClickOnIcon = mobileIcon.contains(event.target);
+        if (!isInsideMenu && !isClickOnIcon && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Scroll event listener for homepage active section
+    window.addEventListener('scroll', function() {
+        if (homepageContainer && homepageContainer.style.display !== 'none') {
+            updateActiveSection();
+        }
+    });
+    
+    // Initial active section on load
+    window.addEventListener('load', function() {
+        showHomepage();
+        updateActiveSection();
+    });
+    
+    // ==================== Contact Form Handling ====================
+    const contactForm = document.getElementById('contactForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+    
+            if (!name || !email || !message) {
+                feedbackDiv.style.color = '#c0392b';
+                feedbackDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill all fields.';
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                feedbackDiv.style.color = '#c0392b';
+                feedbackDiv.innerHTML = '<i class="fas fa-envelope"></i> Please enter a valid email address.';
+                return;
+            }
+    
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+            
+            setTimeout(() => {
+                feedbackDiv.style.color = '#1f7a5c';
+                feedbackDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thanks! Your message was sent. I\'ll reach out within 24h.';
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                setTimeout(() => {
+                    if (feedbackDiv.innerHTML.includes('Thanks')) {
+                        feedbackDiv.innerHTML = '';
+                    }
+                }, 5000);
+            }, 800);
+        });
+    }
+</script>
+</body>
+</html>
