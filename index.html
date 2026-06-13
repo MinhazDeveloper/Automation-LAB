@@ -652,10 +652,8 @@
 
 <script>
     // ==================== CONFIGURATION ====================
-    // UPDATE THIS URL with your actual workflow download link
-    const WORKFLOW_DOWNLOAD_URL = "https://example.com/automation-workflow.zip";
-    // If you want to use a different link, just change the value above.
-    // Example: "https://drive.google.com/your-workflow-file" or "https://yourdomain.com/workflow.pdf"
+    // UPDATE THIS URL with your actual workflow download link (if needed)
+    const WORKFLOW_DOWNLOAD_URL = "https://minhaz85.gumroad.com/l/invoice";
     
     // ==================== DOM Elements ====================
     const homepageContainer = document.getElementById('homepageSections');
@@ -677,6 +675,35 @@
         }
     }
 
+    // ==================== ROUTING SYSTEM (NEW) ====================
+    // Get page from URL query parameter: ?page=workflow
+    function getPageFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('page'); // returns 'workflow' or null
+    }
+
+    // Update URL without reloading the page
+    function updateURL(page) {
+        const url = new URL(window.location);
+        if (page === 'workflow') {
+            url.searchParams.set('page', 'workflow');
+        } else {
+            url.searchParams.delete('page');
+        }
+        window.history.pushState({}, '', url);
+    }
+
+    // Handle routing based on URL parameter
+    function handleRouting() {
+        const page = getPageFromURL();
+        if (page === 'workflow') {
+            // Show workflow page without animation delay
+            showWorkflowPage(true);
+        } else {
+            showHomepage();
+        }
+    }
+
     // ==================== Workflow Page Creation ====================
     function createWorkflowPage() {
         if (workflowPageDiv) return workflowPageDiv;
@@ -690,10 +717,8 @@
                 <div class="workflow-sub">See how AI-driven automation transforms business operations — from data to decisions</div>
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/hZMh7vvtBHw" title="AI Automation Workflow Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
                 </div>
                 <div class="workflow-buttons">
-                    
                     <a id="getWorkflowBtn" class="btn-workflow btn-workflow-primary" href="https://minhaz85.gumroad.com/l/invoice" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i> Get Workflow
                     </a>
@@ -707,32 +732,15 @@
             </div>
         `;
         
-        // Get Workflow button - opens the provided link
-        // const getBtn = wfDiv.querySelector('#getWorkflowBtn');
-        // if (getBtn) {
-        //     getBtn.href = WORKFLOW_DOWNLOAD_URL;
-        //     // Optional: add click tracking or validation
-        //     getBtn.addEventListener('click', (e) => {
-        //         // You can add analytics or custom logic here if needed
-        //         console.log('Get Workflow clicked, opening:', WORKFLOW_DOWNLOAD_URL);
-        //     });
-        // }
-        
-        // Full Setup button - navigates to Contact Me page
-        const setupBtn = wfDiv.querySelector('#fullSetupBtn');
-        if (setupBtn) {
-            setupBtn.addEventListener('click', () => {
-                // Navigate to Contact Me section on homepage
-                navigateToContactPage();
-            });
-        }
-        
         return wfDiv;
     }
     
     // ==================== Navigation Functions ====================
     // Navigate to a specific section on the homepage
     function navigateToHomepageSection(sectionId) {
+        // Update URL to remove page parameter (go to homepage)
+        updateURL('home');
+        
         // First, ensure homepage is visible
         if (workflowPageDiv && workflowPageDiv.style.display === 'block') {
             // Switch back to homepage
@@ -779,14 +787,21 @@
     }
     
     // Show Workflow Page (hide homepage sections)
-    function showWorkflowPage() {
+    // Parameter 'skipURLUpdate' prevents infinite loop when called from routing
+    function showWorkflowPage(skipURLUpdate = false) {
         const workflowDiv = createWorkflowPage();
         if (!workflowDiv.parentNode) {
             mainWrapper.appendChild(workflowDiv);
         }
+        
         // Hide homepage sections
         if (homepageContainer) homepageContainer.style.display = 'none';
         workflowDiv.style.display = 'block';
+        
+        // Update URL only if not called from routing (prevents infinite loop)
+        if (!skipURLUpdate) {
+            updateURL('workflow');
+        }
         
         // Update active nav link - only workflow should be active
         navLinksAll.forEach(link => link.classList.remove('active'));
@@ -858,10 +873,11 @@
         });
     });
     
-    // Workflow button click handler
+    // Workflow button click handler - updates URL and shows workflow
     if (workflowNavBtn) {
         workflowNavBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            updateURL('workflow');
             showWorkflowPage();
         });
     }
@@ -895,9 +911,14 @@
         }
     });
     
-    // Initial active section on load
+    // Listen for browser back/forward buttons (popstate)
+    window.addEventListener('popstate', function() {
+        handleRouting();
+    });
+    
+    // Initial load: check URL and show correct page
     window.addEventListener('load', function() {
-        showHomepage();
+        handleRouting();
         updateActiveSection();
     });
     
